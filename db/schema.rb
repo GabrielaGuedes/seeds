@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_004923) do
+ActiveRecord::Schema.define(version: 2020_09_03_225318) do
 
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.string "phone_number"
     t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "twilio_configs", force: :cascade do |t|
+    t.string "account_sid"
+    t.string "auth_token"
+    t.string "twilio_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
