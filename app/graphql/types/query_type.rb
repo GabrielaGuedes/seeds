@@ -5,6 +5,7 @@ module Types
 
     field :students, [Types::StudentType], null: false
     field :current_student, Types::StudentType, null: false
+    field :jitsi_code, GraphQL::Types::BigInt, null: false
     
     def students
       Student.all
@@ -12,6 +13,10 @@ module Types
 
     def current_student
       Student.find(1)
+    end
+
+    def jitsi_code
+      rand(100000000000..1000000000000)
     end
   end
 end
