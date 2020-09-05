@@ -1,10 +1,8 @@
-module Interactors
-  class GenerateJitsiCode
+class GenerateJitsiCode
 
-    include Interactor
+  include Interactor
 
-    def call
-      context.jitsi_code = rand(100000000000..1000000000000)
-    end
+  def call
+    context.jitsi_code = rand(100000000000..1000000000000)
   end
 end

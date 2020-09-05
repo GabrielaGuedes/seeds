@@ -5,11 +5,11 @@ class SendSms
   include Interactor
 
   def call
-    client.messages.create(
-      from: from_number,
-      to: context.phone_number,
-      body: context.message
-    )
+    # client.messages.create(
+    #   from: from_number,
+    #   to: context.phone_number,
+    #   body: context.message
+    # )
   end
 
   private

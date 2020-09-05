@@ -1,8 +1,6 @@
-module Interactors
-  class InviteFriendsOrganizer
+class InviteFriendsOrganizer
 
-    include Interactor::Organizer
+  include Interactor::Organizer
 
-    organize(Interactors::NotifyFriends, Interactors::GenerateJitsiCode, Interactors::UpdateFriendsInvites)
-  end
+  organize(NotifyFriends, GenerateJitsiCode, UpdateFriendsInvites)
 end
