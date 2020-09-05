@@ -14,7 +14,7 @@ module Types
     end
 
     def jitsi_code
-      GenerateJitsiCode.call.jitsi_code
+      Interactors::GenerateJitsiCode.call.jitsi_code
     end
   end
 end

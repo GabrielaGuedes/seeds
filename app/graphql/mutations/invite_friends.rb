@@ -18,7 +18,7 @@ module Mutations
     private
 
     def invite_result
-      @invite_result ||= InviteFriendsOrganizer.call(students: students, inviter: inviter, book_url: @book_url)
+      @invite_result ||= Interactors::InviteFriendsOrganizer.call(students: students, inviter: inviter, book_url: @book_url)
     end
 
     def students
