@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_05_163440) do
+ActiveRecord::Schema.define(version: 2020_09_05_222738) do
+
+  create_table "invites", force: :cascade do |t|
+    t.string "jitsi_code"
+    t.string "book_url"
+    t.integer "inviter_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["inviter_id"], name: "index_invites_on_inviter_id"
+  end
+
+  create_table "invites_students", id: false, force: :cascade do |t|
+    t.integer "invite_id"
+    t.integer "student_id"
+    t.index ["invite_id"], name: "index_invites_students_on_invite_id"
+    t.index ["student_id"], name: "index_invites_students_on_student_id"
+  end
 
   create_table "students", force: :cascade do |t|
     t.string "name"
@@ -30,4 +46,5 @@ ActiveRecord::Schema.define(version: 2020_09_05_163440) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "invites", "students", column: "inviter_id"
 end
