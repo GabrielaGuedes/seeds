@@ -4,14 +4,14 @@ module Mutations
     argument :student_ids, [ID], required: true
     argument :book_url, String, required: true
 
-    field :jitsi_code, String, null: false
+    field :invite, Types::InviteType, null: false
 
     def resolve(student_ids:, book_url:)
       @student_ids = student_ids
       @book_url = book_url
-      
+
       {
-        jitsi_code: invite_result.jitsi_code
+        invite: invite_result.invite
       }
     end
 
