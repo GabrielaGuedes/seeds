@@ -1,7 +1,5 @@
 module Types
   class QueryType < Types::BaseObject
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
 
     field :students, [Types::StudentType], null: false
     field :current_student, Types::StudentType, null: false
@@ -11,12 +9,12 @@ module Types
       Student.all
     end
 
-    def current_student
+    def current_student #TODO: implement current student
       Student.find(1)
     end
 
     def jitsi_code
-      rand(100000000000..1000000000000)
+      GenerateJitsiCode.call.jitsi_code
     end
   end
 end

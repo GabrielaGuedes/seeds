@@ -53,3 +53,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'graphiql-rails'
 gem 'twilio-ruby'
 gem "interactor", "~> 3.0"
+gem 'pry'

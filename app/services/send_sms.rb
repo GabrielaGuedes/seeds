@@ -15,18 +15,18 @@ class SendSms
   private
 
   def client
-    client ||= Twilio::REST::Client.new(account_sid, auth_token)    
+    @client ||= Twilio::REST::Client.new(account_sid, auth_token)    
   end
 
   def account_sid
-    account_sid ||= ::TwilioConfig.first.account_sid
+    @account_sid ||= ::TwilioConfig.first.account_sid
   end
 
   def auth_token
-    auth_token ||= ::TwilioConfig.first.auth_token
+    @auth_token ||= ::TwilioConfig.first.auth_token
   end
 
   def from_number
-    from_number ||= ::TwilioConfig.first.twilio_number
+    @from_number ||= ::TwilioConfig.first.twilio_number
   end
 end
