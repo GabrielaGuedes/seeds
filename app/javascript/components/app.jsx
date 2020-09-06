@@ -1,7 +1,8 @@
 import React from "react";
+import ReadingRoom from "./reading-room";
 
 const App = () => {
-  return "Hello World";
+  return <ReadingRoom />;
 };
 
 export default App;
