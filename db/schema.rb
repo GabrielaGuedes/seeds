@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_05_233640) do
+ActiveRecord::Schema.define(version: 2020_09_06_144817) do
 
   create_table "invites", force: :cascade do |t|
     t.string "jitsi_code"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_09_05_233640) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "parent_phone_number"
     t.string "pending_invites"
+    t.string "password"
   end
 
   create_table "twilio_configs", force: :cascade do |t|

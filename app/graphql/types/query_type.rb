@@ -10,8 +10,8 @@ module Types
       Student.all
     end
 
-    def current_student #TODO: implement current student
-      Student.find(1)
+    def current_student
+      context[:current_user]
     end
 
     def jitsi_code

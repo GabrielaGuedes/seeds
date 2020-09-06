@@ -20,7 +20,7 @@ module Mutations
     end
 
     def accepter
-      @accepter ||= Student.first #TODO: implement current student
+      current_student
     end
   end
 end

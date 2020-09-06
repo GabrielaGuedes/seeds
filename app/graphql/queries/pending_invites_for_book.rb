@@ -32,9 +32,9 @@ module Queries
     def student_pending_invites
       current_student.pending_invites.split
     end
-    
+
     def current_student
-      Student.find(1) # TODO: implement current_student
+      context[:current_user]
     end
   end
 end
