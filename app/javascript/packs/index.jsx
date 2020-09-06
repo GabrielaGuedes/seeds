@@ -6,6 +6,7 @@ import { ApolloClient } from "apollo-client";
 import { createHttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { ApolloProvider as ApolloHooksProvider } from "@apollo/react-hooks";
+import { BrowserRouter } from "react-router-dom";
 
 const link = createHttpLink({
   uri: "http://localhost:3000/graphql",
@@ -18,11 +19,13 @@ const client = new ApolloClient({
 
 document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(
-    <ApolloProvider client={client}>
-      <ApolloHooksProvider client={client}>
-        <App />
-      </ApolloHooksProvider>
-    </ApolloProvider>,
+    <BrowserRouter>
+      <ApolloProvider client={client}>
+        <ApolloHooksProvider client={client}>
+          <App />
+        </ApolloHooksProvider>
+      </ApolloProvider>
+    </BrowserRouter>,
     document.body.appendChild(document.createElement("div"))
   );
 });
