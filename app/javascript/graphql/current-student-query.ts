@@ -5,6 +5,7 @@ export const currentStudent = gql`
     currentStudent {
       id
       name
+      firstName
       email
       parentPhoneNumber
       phoneNumber
