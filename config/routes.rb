@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#index'
+  resources :sessions, only: [:create]
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
   end

@@ -26,7 +26,7 @@ module Mutations
     end
 
     def inviter
-      @inviter ||= Student.first #TODO: implement current student
+      current_student
     end
   end
 end
