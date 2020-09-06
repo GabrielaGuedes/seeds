@@ -1,22 +1,22 @@
 module Mutations
   class AcceptFriendInvite < BaseMutation
 
-    argument :book_url, String, required: true
+    argument :invite_id, ID, required: true
 
-    field :jitsi_code, String, null: false
+    field :invite, Types::InviteType, null: false
 
-    def resolve(book_url:)
-      @book_url = book_url
+    def resolve(invite_id:)
+      @invite_id = invite_id
       
       {
-        jitsi_code: accept_result.jitsi_code
+        invite: accept_result.invite
       }
     end
 
     private
 
     def accept_result
-      @accept_result ||= UpdateAccepterBookInvites.call(accepter: accepter, book_url: @book_url)
+      @accept_result ||= UpdateAccepterPendingInvites.call(accepter: accepter, invite_id: @invite_id)
     end
 
     def accepter
