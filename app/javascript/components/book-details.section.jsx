@@ -7,7 +7,9 @@ const BookDetailsSection = ({ book }) => {
   return (
     <center>
       <div style={{ display: "flex", flexDirection: "row", width: "75%" }}>
-        <img src={require("../../assets/images/pequeno_principe_capa.jpg")} />
+        <div>
+          <img src={require("../../assets/images/pequeno_principe_capa.jpg")} />
+        </div>
         <div style={{ marginLeft: 50, textAlign: "left" }}>
           <div style={{ marginBottom: 34, fontSize: 30, fontWeight: "bold" }}>
             {book.title}
