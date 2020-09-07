@@ -35,6 +35,8 @@ const InviteParentsButton = () => {
               display: "flex",
               flexDirection: "row",
               alignItems: "center",
+              background: "#FFFFFF",
+              borderRadius: "0px 0px 20px 20px",
             }}
           >
             <img
@@ -92,6 +94,8 @@ const InviteParentsButton = () => {
                 <center
                   style={{
                     padding: "17px",
+                    background: "#FFFFFF",
+                    borderRadius: "0px 0px 20px 20px",
                   }}
                 >
                   <div
@@ -127,8 +131,9 @@ const InviteParentsButton = () => {
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
-          padding: "12px 26px",
+          padding: "6px 26px",
           border: "0.8px solid #8553F4",
+          marginRight: 10,
         }}
         onClick={handleClick}
       >
