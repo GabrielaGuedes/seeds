@@ -10,9 +10,9 @@ import SignupPage from "./signup-page.jsx";
 const App = () => {
   return (
     <Fragment>
-      <Header />
       <Switch>
         <Route path="/" exact>
+          <Header />
           <BookDetailsSection
             book={{
               author: "Antoine de Saint-Exupéry",
@@ -30,6 +30,7 @@ const App = () => {
           <SignupPage />
         </Route>
         <Route path="/pequeno-principe" exact>
+          <Header />
           <BookDetailsSection
             book={{
               author: "Antoine de Saint-Exupéry",
@@ -41,6 +42,7 @@ const App = () => {
           />
         </Route>
         <Route path="/reading-room" exact>
+          <Header />
           <ReadingRoom />
         </Route>
       </Switch>
