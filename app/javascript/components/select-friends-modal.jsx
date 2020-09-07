@@ -4,11 +4,13 @@ import Select from "react-select";
 import { students } from "../graphql/students-query.ts";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { inviteFriends } from "../graphql/invite-friends-mutation.ts";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { currentStudent } from "../graphql/current-student-query.ts";
 
 const SelectFriendsModal = ({ isOpen, setIsOpen }) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const { data } = useQuery(students);
+  const { data: current } = useQuery(currentStudent);
   const [inviteFriendsToCall] = useMutation(inviteFriends);
 
   const handleClose = () => {
@@ -44,17 +46,15 @@ const SelectFriendsModal = ({ isOpen, setIsOpen }) => {
 
   const options =
     data &&
-    data.students.map((student) => ({
-      value: student.id,
-      label: student.firstName,
-    }));
+    data.students
+      .filter((student) => student.id !== current?.currentStudent.id)
+      .map((student) => ({
+        value: student.id,
+        label: student.firstName,
+      }));
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={handleClose}
-      style={customStyles}
-    >
+    <Modal isOpen={isOpen} onRequestClose={handleClose} style={customStyles}>
       <div
         style={{
           backgroundColor: "#45D0C1",
@@ -297,7 +297,7 @@ const SelectFriendsModal = ({ isOpen, setIsOpen }) => {
             </div>
           </div>
         </div>
-        <Link to="/reading-room" style={{textDecoration: 'none'}}>
+        <Link to="/reading-room" style={{ textDecoration: "none" }}>
           <button
             style={{
               background: selectedOptions.length === 0 ? "#F5FBFF" : "#8553F4",
@@ -310,7 +310,6 @@ const SelectFriendsModal = ({ isOpen, setIsOpen }) => {
               minHeight: "45px",
               border: 0,
               cursor: selectedOptions.length === 0 ? "not-allowed" : "pointer",
-              
             }}
             disabled={selectedOptions.length === 0}
             onClick={handleCallFriendsClick}
