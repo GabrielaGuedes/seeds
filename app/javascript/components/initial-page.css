@@ -1,0 +1,137 @@
+.Navtop {
+  position: relative;
+  width: 100vw;
+}
+
+.Navblue {
+  height: 70px;
+  width: 100vw;
+  background-color: #45cfc4;
+  display: inline-flex;
+}
+
+.Navwhite {
+  margin-top: -40px;
+  width: 100vw;
+  border-bottom: rgba(40, 44, 52, 0.14) 1px solid;
+}
+
+.Navlist {
+  list-style-type: none;
+  display: inline-flex;
+  margin: 0;
+}
+
+.Navlist li {
+  padding: 1vw;
+}
+
+.Navlist li a {
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.35);
+}
+
+.Navlist li:hover {
+  border-bottom: #45cccd solid 2px;
+}
+
+.Arvorelogo {
+  margin-left: 1.5vw;
+}
+
+.Indexwrapper {
+  padding: 6vh 7.5vw;
+}
+
+.IndexBanner {
+  width: 100%;
+  background-color: #cfbaff;
+  border-radius: 5px;
+  padding: 17px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.IndexBanner span:first-of-type {
+  color: #6b42c7;
+  font-weight: 500;
+  font-size: 18px;
+  margin-left: 3vw;
+}
+
+.IndexBanner span:nth-child(3) {
+  color: #fff;
+  font-weight: 700;
+  font-size: 35px;
+  margin-left: auto;
+}
+
+.logoLeitura {
+  width: 300px;
+  margin: 0 20px;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.ListInlineContainer {
+  display: inline-flex;
+}
+
+.ListInlineContainer img {
+  max-width: 90%;
+  border-radius: 10px;
+  margin: 1em;
+}
+
+.ContinuarContainer {
+  width: fit-content;
+  text-align: center;
+}
+
+.ContinuarLendo img {
+  border-radius: 10px;
+  margin: 1em auto;
+}
+
+.ContinuarLendo p:first-of-type {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.ContinuarLendo div p:nth-child(3) {
+  color: #9b9b9b;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.ContinuarLendo p {
+  margin: 0;
+}
+
+.ContinuarLendo span {
+  color: #60727b;
+  padding: 2px 10px;
+  background-color: #d6dde2;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+.Colecoes .ListInlineContainer div {
+  margin: 10px;
+  padding: 0;
+  border-radius: 10px;
+  object-fit: contain;
+  contain: content;
+  text-align: center;
+}
+
+.Colecoes p {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
