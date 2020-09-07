@@ -5,6 +5,7 @@ import Switch from "react-bootstrap/esm/Switch";
 import BookDetailsSection from "./book-details.section.jsx";
 import Header from "./header";
 import LoginPage from "./login-page.jsx";
+import SignupPage from "./signup-page.jsx";
 
 const App = () => {
   return (
@@ -24,6 +25,9 @@ const App = () => {
         </Route>
         <Route path="/login" exact>
           <LoginPage />
+        </Route>
+        <Route path="/signup" exact>
+          <SignupPage />
         </Route>
         <Route path="/pequeno-principe" exact>
           <BookDetailsSection
