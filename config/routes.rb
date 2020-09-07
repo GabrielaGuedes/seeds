@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#index'
-  match '*path', to: 'pages#index', via: :all
+  match '/tuk', to: 'pages#index', via: :all
   resources :sessions, only: [:create]
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
