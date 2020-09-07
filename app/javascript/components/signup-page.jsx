@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import toaster from "toasted-notes";
 import { signup } from "../graphql/signup-mutation.ts";
+import { Link } from "react-router-dom";
 
 const SignupPage = () => {
   const [email, setEmail] = useState("");
@@ -218,6 +219,16 @@ const SignupPage = () => {
         >
           <b>Acessar</b>
         </button>
+        <Link
+          to="/login"
+          style={{
+            fontWeight: "bold",
+            marginTop: 50,
+            marginBottom: 20,
+          }}
+        >
+          Já possui login?
+        </Link>
       </div>
     </center>
   );
