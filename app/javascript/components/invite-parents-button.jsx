@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { sendInviteToParents } from "../graphql/send-invite-to-parents-mutation.ts";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { currentStudent } from "../graphql/current-student-query.ts";

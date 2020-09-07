@@ -89,16 +89,19 @@ const NotificationModal = ({
                 justifyContent: "space-around",
               }}
             >
-              {invitedFriendsNames.map((name, index) => (
-                <center style={{ display: "flex", flexDirection: "column" }}>
-                  <div>
-                    <img
-                      src={require(`../../assets/images/child${index + 2}.png`)}
-                    />
-                  </div>
-                  {name}
-                </center>
-              ))}
+              {invitedFriendsNames.map((name, index) => {
+                const childNum = index + 2 > 4 ? 4 : index + 2;
+                return (
+                  <center style={{ display: "flex", flexDirection: "column" }}>
+                    <div>
+                      <img
+                        src={require(`../../assets/images/child${childNum}.png`)}
+                      />
+                    </div>
+                    {name}
+                  </center>
+                );
+              })}
             </div>
           </div>
         </div>
