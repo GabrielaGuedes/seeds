@@ -6,6 +6,7 @@ module Types
     field :accept_friend_invite, mutation: Mutations::AcceptFriendInvite
     field :login, mutation: Mutations::Login
     field :signup, mutation: Mutations::Signup
+    field :logout, mutation: Mutations::Logout
 
   end
 end

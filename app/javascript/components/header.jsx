@@ -1,8 +1,9 @@
 import React from 'react';
 import {SearchOutlined, DownOutlined} from '@ant-design/icons';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { students } from "../graphql/students-query.ts";
 import { currentStudent } from "../graphql/current-student-query.ts";
+import { logout } from '../graphql/logout-mutation.ts';
 
 
 const Header = () => {
@@ -13,6 +14,17 @@ const Header = () => {
       name: 'Nome do usuário',
       firstName: 'Nome'
     }
+    const [logoutFromApp] = useMutation(logout);
+
+    const handleLogout = () => {
+        logoutFromApp({
+            variables: {
+                input: {}
+            }
+        }).then(() => {
+            window.location.href = "../login";
+        });
+    }
 
     return <div style={headerContainer}>
         <img src={require('../../assets/images/horizontal_logo.png')}/>
@@ -22,7 +34,9 @@ const Header = () => {
         </div>
         <div style={userName}>
             <span>{firstStudent.name}</span>
-            <DownOutlined style={dropDownIcon}/>
+            <div style={{ cursor: 'pointer' }} onClick={handleLogout}>
+               Logout
+            </div>
         </div>
     </div>
 }

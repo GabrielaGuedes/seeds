@@ -2,7 +2,7 @@ module Types
   class QueryType < Types::BaseObject
 
     field :students, [Types::StudentType], null: false
-    field :current_student, Types::StudentType, null: false
+    field :current_student, Types::StudentType, null: true
     field :jitsi_code, GraphQL::Types::BigInt, null: false
     field :pending_invites_for_book, resolver: Queries::PendingInvitesForBook
     

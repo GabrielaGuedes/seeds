@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'pages#index'
   match '/pequeno-principe', to: 'pages#index', via: :all
   match '/reading-room', to: 'pages#index', via: :all
+  match '/login', to: 'pages#index', via: :all
+  match '/signup', to: 'pages#index', via: :all
   resources :sessions, only: [:create]
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
