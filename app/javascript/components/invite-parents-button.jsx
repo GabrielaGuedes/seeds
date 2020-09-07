@@ -134,6 +134,7 @@ const InviteParentsButton = () => {
           padding: "6px 26px",
           border: "0.8px solid #8553F4",
           marginRight: 10,
+          cursor: "pointer",
         }}
         onClick={handleClick}
       >
