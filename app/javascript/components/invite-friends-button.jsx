@@ -18,7 +18,6 @@ const InviteFriendsButton = () => {
         style={{
           background: "#8553F4",
           borderRadius: 2,
-          margin: 50,
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
