@@ -1,11 +1,143 @@
-import React from "react";
+import React, { useState } from "react";
 import InviteFriendsButton from "./invite-friends-button.jsx";
 import InviteParentsButton from "./invite-parents-button.jsx";
 import { Link } from "react-router-dom";
+import { pendingInvitesForBook } from "../graphql/pending-invites-for-book-query.ts";
+import { useQuery, useMutation } from "@apollo/react-hooks";
+import NotificationModal from "./notification-modal.jsx";
+import { dismissFriendInvite } from "../graphql/dismiss-friend-invite-mutation.ts";
+import { acceptFriendInvite } from "../graphql/accept-friend-invite-mutation.ts";
 
 const BookDetailsSection = ({ book }) => {
+  const { data } = useQuery(pendingInvitesForBook, {
+    variables: { bookUrl: window.location.href },
+  });
+
+  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [canSeeBanner, setCanSeeBanner] = useState(true);
+
+  const [acceptInvite] = useMutation(acceptFriendInvite);
+  const [dismissInvite] = useMutation(dismissFriendInvite);
+
+  const handleCloseBanner = () => {
+    dismissInvite({
+      variables: {
+        input: {
+          inviteId: data?.pendingInvitesForBook[0].id,
+        },
+      },
+    }).then(() => {
+      setCanSeeBanner(false);
+    });
+  };
+
+  const handleReadClick = () => {
+    acceptInvite({
+      variables: {
+        input: {
+          inviteId: data?.pendingInvitesForBook[0].id,
+        },
+      },
+    }).then(() => {
+      localStorage.setItem(
+        "jitsiCode",
+        data?.pendingInvitesForBook[0].jitsiCode
+      );
+      window.location.href = "../reading-room";
+    });
+  };
+
   return (
     <center>
+      {data?.pendingInvitesForBook.length > 0 && (
+        <NotificationModal
+          isOpen={isModalOpen}
+          setIsOpen={setIsModalOpen}
+          inviterName={data?.pendingInvitesForBook[0].inviter.name}
+          invitedFriendsNames={data?.pendingInvitesForBook[0].invitedFriends.map(
+            (friend) => friend.name
+          )}
+          jitsiCode={data?.pendingInvitesForBook[0].jitsiCode}
+          inviteId={data?.pendingInvitesForBook[0].id}
+        />
+      )}
+      {data?.pendingInvitesForBook.length > 0 && canSeeBanner && (
+        <div
+          style={{
+            background: "#EFE8FF",
+            borderRadius: 7,
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "7px 15px",
+            width: "75%",
+            marginBottom: 30,
+          }}
+        >
+          <div
+            style={{
+              color: "#6B5CD6",
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+            }}
+          >
+            <img
+              src={require("../../assets/images/felipe_small.png")}
+              style={{ marginRight: 20 }}
+            />
+            <b>{data?.pendingInvitesForBook[0].inviter.name}</b> está te
+            convidando para uma roda de leitura!
+          </div>
+          <div style={{ display: "flex", flexDirection: "row", width: "40%" }}>
+            <button
+              style={{
+                background: "#45D0C1",
+                borderRadius: 4,
+                width: "100%",
+                color: "#FFFFFF",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                marginRight: 10,
+                minHeight: "45px",
+                border: 0,
+                cursor: "pointer",
+              }}
+              onClick={handleReadClick}
+            >
+              <img
+                src={require("../../assets/images/little_book.png")}
+                style={{ marginRight: 5 }}
+              />
+              <b>Entrar na roda de leitura</b>
+            </button>
+            <button
+              style={{
+                background: "none",
+                borderRadius: 4,
+                width: "100%",
+                color: "#8553F4",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                minHeight: "45px",
+                border: 0,
+                cursor: "pointer",
+                border: "0.8px solid #8553F4",
+              }}
+              onClick={handleCloseBanner}
+            >
+              <img
+                src={require("../../assets/images/cross.png")}
+                style={{ marginRight: 5 }}
+              />
+              <b>Não quero participar</b>
+            </button>
+          </div>
+        </div>
+      )}
       <div style={{ display: "flex", flexDirection: "row", width: "75%" }}>
         <div>
           <img src={require("../../assets/images/pequeno_principe_capa.jpg")} />
