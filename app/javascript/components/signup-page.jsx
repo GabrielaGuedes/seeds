@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { useMutation } from "@apollo/react-hooks";
+import React, { useState, useEffect } from "react";
+import { useMutation, useQuery } from "@apollo/react-hooks";
 import toaster from "toasted-notes";
 import { signup } from "../graphql/signup-mutation.ts";
 import { Link } from "react-router-dom";
+import { currentStudent } from "../graphql/current-student-query.ts";
 
 const SignupPage = () => {
   const [email, setEmail] = useState("");
@@ -11,7 +12,14 @@ const SignupPage = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [parentPhoneNumber, setParentPhoneNumber] = useState("");
 
+  const { data } = useQuery(currentStudent);
   const [signupToApp] = useMutation(signup);
+
+  useEffect(() => {
+    if (data && data.currentStudent) {
+      window.location.href = "../";
+    }
+  });
 
   const handleLogin = () => {
     signupToApp({

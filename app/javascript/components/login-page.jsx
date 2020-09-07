@@ -1,14 +1,22 @@
-import React, { useState } from "react";
-import { useMutation } from "@apollo/react-hooks";
+import React, { useState, useEffect } from "react";
+import { useMutation, useQuery } from "@apollo/react-hooks";
 import { login } from "../graphql/login-mutation.ts";
 import toaster from "toasted-notes";
 import { Link } from "react-router-dom";
+import { currentStudent } from "../graphql/current-student-query.ts";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { data } = useQuery(currentStudent);
   const [loginToApp] = useMutation(login);
+
+  useEffect(() => {
+    if (data && data.currentStudent) {
+      window.location.href = "../";
+    }
+  });
 
   const handleLogin = () => {
     loginToApp({

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {SearchOutlined, DownOutlined} from '@ant-design/icons';
 import { useQuery, useMutation } from '@apollo/client';
 import { students } from "../graphql/students-query.ts";
@@ -10,11 +10,17 @@ const Header = () => {
     
     const { data } = useQuery(currentStudent);
     const { data: allData } = useQuery(students);
-    const firstStudent =  data ? {...data.currentStudent.name} : allData ? {...allData.students[0]} : {
+    const firstStudent =  data ? {...data.currentStudent?.name} : allData ? {...allData.students[0]} : {
       name: 'Nome do usuário',
       firstName: 'Nome'
     }
     const [logoutFromApp] = useMutation(logout);
+
+    useEffect(() => {
+      if (data && data.currentStudent === null) {
+        window.location.href = "../login";
+      }
+    });
 
     const handleLogout = () => {
         logoutFromApp({
@@ -33,7 +39,7 @@ const Header = () => {
             <SearchOutlined />
         </div>
         <div style={userName}>
-            <span>{firstStudent.name}</span>
+            <span>{firstStudent?.name}</span>
             <div style={{ cursor: 'pointer' }} onClick={handleLogout}>
                Logout
             </div>
