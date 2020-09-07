@@ -37,6 +37,9 @@ const roomContainer = {
     display: 'flex',
     justifyContent: 'center',
     backgroundColor: '#2E3234',
+    position: 'absolute',
+    top: '0px',
+    width: '100%'
 }
 
 const bookContainer = {
