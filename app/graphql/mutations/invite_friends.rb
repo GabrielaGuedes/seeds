@@ -22,7 +22,7 @@ module Mutations
     end
 
     def students
-      @students ||= @student_ids.map{ |student_id| Student.find(student_id) }
+      @students ||= @student_ids.first(8).map{ |student_id| Student.find(student_id) }
     end
 
     def inviter
