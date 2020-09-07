@@ -2,13 +2,14 @@ import React from 'react';
 import {SearchOutlined, DownOutlined} from '@ant-design/icons';
 import { useQuery } from '@apollo/client';
 import { students } from "../graphql/students-query.ts";
+import { currentStudent } from "../graphql/current-student-query.ts";
 
 
 const Header = () => {
     
-    const { data } = useQuery(students);
-    const firstStudent =  data ? {...data.students[0]} : {
-      id: '1',
+    const { data } = useQuery(currentStudent);
+    const { data: allData } = useQuery(students);
+    const firstStudent =  data ? {...data.currentStudent.name} : allData ? {...allData.students[0]} : {
       name: 'Nome do usuário',
       firstName: 'Nome'
     }
