@@ -27,7 +27,8 @@ const fullscreenContainer = {
     height: '100%',
     background: '#0009',
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    zIndex: 1,
 }
 
 const displayNone={
