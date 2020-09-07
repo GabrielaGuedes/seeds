@@ -48,7 +48,6 @@ const SelectFriendsModal = ({ isOpen, setIsOpen }) => {
       label: student.firstName,
     }));
 
-  console.log(data);
   return (
     <Modal
       isOpen={isOpen}
