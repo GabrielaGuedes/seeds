@@ -32,8 +32,12 @@ const Header = () => {
         });
     }
 
+    const handleLogoClick = () => {
+        window.location.href = "../";
+    }
+
     return <div style={headerContainer}>
-        <img src={require('../../assets/images/horizontal_logo.png')}/>
+        <img src={require('../../assets/images/horizontal_logo.png')} onClick={handleLogoClick} style={{ cursor: 'pointer'}} />
         <div style={inputContainer}>
             <input style={inputField} placeholder={'Pesquise pelo título, autor, categoria, etc...'}/>
             <SearchOutlined />

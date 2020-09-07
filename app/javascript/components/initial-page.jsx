@@ -21,13 +21,19 @@ const listCollectinons = colecoes.map((colecao, index) => (
   </div>
 ));
 
+const handleInitialClick = () => {
+  window.location.href = "../";
+};
+
 function InitialPage() {
   return (
     <div className="Indexcontainer">
       <nav className="Navtop">
         <div className="Navwhite">
           <ul className="Navlist">
-            <li>Início</li>
+            <li onClick={handleInitialClick} style={{ cursor: "pointer" }}>
+              Início
+            </li>
             <li>Categorias</li>
             <li>Banca</li>
             <li>Indicados</li>
