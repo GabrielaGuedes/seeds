@@ -67,43 +67,19 @@ const NotificationModal = ({
         />
       </div>
       <div style={{ padding: "30px 22px" }}>
-        <div
-          style={{ display: "flex", flexDirection: "row", marginBottom: 25 }}
-        >
-          <center style={{ marginRight: 50 }}>
-            <img src={require("../../assets/images/child1.png")} />
-            {inviterName}
-          </center>
-          <div>
-            <div style={{ fontSize: 30, fontWeight: "bold", marginBottom: 20 }}>
-              Vem ler comigo!!!
-            </div>
-            <div style={{ marginBottom: 30 }}>
-              <b>{inviterName}</b> está te convidando para sua roda leitura!
-              Veja abaixo quem está convidado também:
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-around",
-              }}
-            >
-              {invitedFriendsNames.map((name, index) => {
-                const childNum = index + 2 > 4 ? 4 : index + 2;
-                return (
-                  <center style={{ display: "flex", flexDirection: "column" }}>
-                    <div>
-                      <img
-                        src={require(`../../assets/images/child${childNum}.png`)}
-                      />
-                    </div>
-                    {name}
-                  </center>
-                );
-              })}
-            </div>
+        <div style={{ marginBottom: 20 }}>
+          <div style={{ fontSize: 30, fontWeight: "bold", marginBottom: 20 }}>
+            Vem ler comigo!!!
           </div>
+          <div style={{ marginBottom: 20 }}>
+            <b>{inviterName}</b> está te convidando para sua roda leitura! Veja
+            abaixo quem está convidado também:
+          </div>
+          <center>
+            {invitedFriendsNames.map((name) => (
+              <div>{name}</div>
+            ))}
+          </center>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
           <button

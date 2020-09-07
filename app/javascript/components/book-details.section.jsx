@@ -83,13 +83,9 @@ const BookDetailsSection = ({ book }) => {
               alignItems: "center",
             }}
           >
-            <img
-              src={require("../../assets/images/felipe_small.png")}
-              style={{ marginRight: 20 }}
-            />
             <b style={{ marginRight: 10 }}>
               {data?.pendingInvitesForBook[0].inviter.name}
-            </b>{" "}
+            </b>
             está te convidando para uma roda de leitura!
           </div>
           <div style={{ display: "flex", flexDirection: "row", width: "40%" }}>

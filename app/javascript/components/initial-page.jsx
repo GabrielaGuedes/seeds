@@ -34,39 +34,20 @@ function InitialPage() {
             <li onClick={handleInitialClick} style={{ cursor: "pointer" }}>
               Início
             </li>
-            <li>Categorias</li>
-            <li>Banca</li>
-            <li>Indicados</li>
-            <li>Conquistas</li>
-            <li>Atividades</li>
-            <li>Favoritos</li>
-            <li>Meus e-books</li>
           </ul>
         </div>
       </nav>
       <main className="Indexwrapper">
-        <div className="IndexBanner">
-          <img
-            src={logoLeitura}
-            className="logoLeitura"
-            alt="A leitura aproima"
-          />
-          <span>
-            Compartilhe seus livros preferidos com os leitores da Árvore!
-          </span>
-          <span> ></span>
-        </div>
-
         <section className="Destaques">
           <h2>Destaques</h2>
           <div className="ListInlineContainer">
             {numbers.map((number) => (
-              <div>
+              <Link to="/pequeno-principe" style={{ textDecoration: "none" }}>
                 <img
-                  src={require(`../../assets/images/destaques/capa${number}.jpg`)}
-                  alt="Capa do livro"
+                  src={require("../../assets/images/continuarlendo/capa6.jpg")}
+                  alt="O pequeno príncipe"
                 />
-              </div>
+              </Link>
             ))}
           </div>
         </section>
@@ -84,11 +65,6 @@ function InitialPage() {
               <span>Livro</span>
             </Link>
           </div>
-        </section>
-
-        <section className="Colecoes">
-          <h2>Coleções</h2>
-          <div className="ListInlineContainer">{listCollectinons}</div>
         </section>
       </main>
     </div>
