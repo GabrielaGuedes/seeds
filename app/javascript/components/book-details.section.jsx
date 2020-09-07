@@ -87,8 +87,10 @@ const BookDetailsSection = ({ book }) => {
               src={require("../../assets/images/felipe_small.png")}
               style={{ marginRight: 20 }}
             />
-            <b>{data?.pendingInvitesForBook[0].inviter.name}</b> está te
-            convidando para uma roda de leitura!
+            <b style={{ marginRight: 10 }}>
+              {data?.pendingInvitesForBook[0].inviter.name}
+            </b>{" "}
+            está te convidando para uma roda de leitura!
           </div>
           <div style={{ display: "flex", flexDirection: "row", width: "40%" }}>
             <button
@@ -138,7 +140,14 @@ const BookDetailsSection = ({ book }) => {
           </div>
         </div>
       )}
-      <div style={{ display: "flex", flexDirection: "row", width: "75%" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          width: "75%",
+          marginBottom: 30,
+        }}
+      >
         <div>
           <img src={require("../../assets/images/pequeno_principe_capa.jpg")} />
         </div>
@@ -206,6 +215,7 @@ const BookDetailsSection = ({ book }) => {
                 color: "#FFFFFF",
                 minHeight: 45,
                 border: 0,
+                cursor: "pointer",
               }}
             >
               Ler sozinho
