@@ -23,7 +23,7 @@ const SelectFriendsModal = ({ isOpen, setIsOpen }) => {
         },
       },
     }).then(() => {
-      window.location.href = "../"; // TODO: insert path to roda de leitura
+      window.location.href = "../reading-room";
     });
   };
 

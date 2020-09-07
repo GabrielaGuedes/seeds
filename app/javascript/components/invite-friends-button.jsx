@@ -21,8 +21,9 @@ const InviteFriendsButton = () => {
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
-          padding: "12px 26px",
+          padding: "6px 26px",
           border: 0,
+          marginRight: 10,
         }}
         onClick={handleClick}
       >

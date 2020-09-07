@@ -3,6 +3,7 @@ import ReadingGroup from './reading-group';
 import LePetitPrince from './le-petit-prince';
 import {InfoCircleFilled} from '@ant-design/icons';
 import SecurityInfoModal from './security-info-modal';
+import { Link } from 'react-router-dom';
 
 const ReadingRoom = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -18,9 +19,11 @@ const ReadingRoom = () => {
                         <InfoCircleFilled  style={securityInfoIcon}/>
                         <span>Informações de Privacidade e Segurança</span>
                         </div>
-                        <button style={leftRoomButton}>
-                            Sair da roda de leitura
-                        </button>
+                        <Link to="/pequeno-principe">
+                            <button style={leftRoomButton}>
+                                Sair da roda de leitura
+                            </button>
+                        </Link>
                     </div>
                     <LePetitPrince />
                 </div>
