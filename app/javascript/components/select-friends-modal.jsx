@@ -4,6 +4,7 @@ import Select from "react-select";
 import { students } from "../graphql/students-query.ts";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { inviteFriends } from "../graphql/invite-friends-mutation.ts";
+import { Link } from 'react-router-dom';
 
 const SelectFriendsModal = ({ isOpen, setIsOpen }) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -53,7 +54,6 @@ const SelectFriendsModal = ({ isOpen, setIsOpen }) => {
       isOpen={isOpen}
       onRequestClose={handleClose}
       style={customStyles}
-      contentLabel="Example Modal"
     >
       <div
         style={{
@@ -297,24 +297,27 @@ const SelectFriendsModal = ({ isOpen, setIsOpen }) => {
             </div>
           </div>
         </div>
-        <button
-          style={{
-            background: selectedOptions.length === 0 ? "#F5FBFF" : "#8553F4",
-            borderRadius: 4,
-            width: "100%",
-            color: selectedOptions.length === 0 ? "#C8CED1" : "#FFFFFF",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            minHeight: "45px",
-            border: 0,
-            cursor: selectedOptions.length === 0 ? "not-allowed" : "pointer",
-          }}
-          disabled={selectedOptions.length === 0}
-          onClick={handleCallFriendsClick}
-        >
-          Chamar amigos
-        </button>
+        <Link to="/reading-room" style={{textDecoration: 'none'}}>
+          <button
+            style={{
+              background: selectedOptions.length === 0 ? "#F5FBFF" : "#8553F4",
+              borderRadius: 4,
+              width: "100%",
+              color: selectedOptions.length === 0 ? "#C8CED1" : "#FFFFFF",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              minHeight: "45px",
+              border: 0,
+              cursor: selectedOptions.length === 0 ? "not-allowed" : "pointer",
+              
+            }}
+            disabled={selectedOptions.length === 0}
+            onClick={handleCallFriendsClick}
+          >
+            Chamar amigos
+          </button>
+        </Link>
       </div>
     </Modal>
   );

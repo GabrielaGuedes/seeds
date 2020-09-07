@@ -24,6 +24,7 @@ const InviteFriendsButton = () => {
           padding: "6px 26px",
           border: 0,
           marginRight: 10,
+          cursor: 'pointer',
         }}
         onClick={handleClick}
       >

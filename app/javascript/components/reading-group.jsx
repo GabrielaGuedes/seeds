@@ -6,7 +6,7 @@ import { useQuery } from "@apollo/react-hooks";
 const ReadingGroup = () => {
   const { data } = useQuery(currentStudent);
   const getRoomName = () => {
-    const name = localStorage.getItem("jitsiCode") || "RodaDeLeitura2";
+    const name = localStorage.getItem("jitsiCode") || "RodaDeLeituraCirandinha";
     localStorage.removeItem("jitsiCode");
     return name;
   };
