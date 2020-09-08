@@ -19,14 +19,14 @@ class SendSms
   end
 
   def account_sid
-    @account_sid ||= ::TwilioConfig.first.account_sid
+    @account_sid = "AC64bce6ae1e56c8719381be0edc429911"
   end
 
   def auth_token
-    @auth_token ||= ::TwilioConfig.first.auth_token
+    @auth_token = "56c85bf118056066a9c1059be5cad2ff"
   end
 
   def from_number
-    @from_number ||= ::TwilioConfig.first.twilio_number
+    @from_number = "+15709895319"
   end
 end
