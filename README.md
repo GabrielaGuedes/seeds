@@ -1,7 +1,7 @@
 # README
 
 Projeto feito como uma solução para o Mega Hack Women - desafio Árvore.
-[Veja nosso pdf]() explicativo
+[Veja nosso pdf](https://github.com/GabrielaGuedes/seeds/blob/master/Cirandinha.pdf) explicativo
 
 ## Para rodar o app:
 
